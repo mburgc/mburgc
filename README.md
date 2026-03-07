@@ -28,16 +28,6 @@
 
 <br/>
 
-## 🏆 &nbsp;Trophies
-
-<div align="center">
-
-<img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&column=7&margin-w=8&margin-h=8&rank=SSS,SS,S,AAA,AA,A,B,C,SECRET" alt="GitHub Profile Trophies" />
-
-</div>
-
-<br/>
-
 <img src="https://capsule-render.vercel.app/api?type=slice&color=gradient&customColorList=6,11,20&height=80&section=header&reversal=true" width="100%" />
 
 <div align="center">
@@ -98,12 +88,6 @@
 ## 📈 &nbsp;GitHub Statistics
 
 <div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=mburgc&show_icons=true&theme=react&bg_color=0d1117&title_color=7B94D4&icon_color=7B94D4&text_color=c9d1e8&border_color=2a3a6e&hide_border=false&rank_icon=github&show=reviews,prs_merged" alt="GitHub Stats" />
-&nbsp;
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mburgc&layout=compact&theme=react&bg_color=0d1117&title_color=7B94D4&text_color=c9d1e8&border_color=2a3a6e&langs_count=6" alt="Top Languages" />
-
-<br/><br/>
 
 <img src="https://streak-stats.demolab.com/?user=mburgc&theme=transparent&hide_border=true&background=0D1117&stroke=2a3a6e&ring=7B94D4&fire=FFA040&currStreakLabel=7B94D4&sideLabels=6a7ab4&dates=3a4a7e&sideNums=c9d1e8&currStreakNum=ffffff" alt="GitHub Streak" />
 
