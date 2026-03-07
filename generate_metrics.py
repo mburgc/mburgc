@@ -33,7 +33,7 @@ except ImportError:
 
 
 # GitHub username and token configuration
-GITHUB_USERNAME = os.environ.get("GITHUB_USERNAME", "HackCocaine")
+GITHUB_USERNAME = os.environ.get("GITHUB_USERNAME", "mburgc")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
 
