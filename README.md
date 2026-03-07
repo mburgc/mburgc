@@ -170,7 +170,7 @@
 
 <br/><br/>
 
-<a href="https://linkedin.com/in/mburgc">
+<a href="https://linkedin.com/in/maburg">
   <img src="https://img.shields.io/badge/LinkedIn-mburgc-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=051829" />
 </a>
 
