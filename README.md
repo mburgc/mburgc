@@ -72,7 +72,7 @@
 
 <!-- Generated weekly by .github/workflows/metrics.yml -->
 <!-- Run the workflow manually once to generate assets/metrics.svg -->
-<img src="assets/metrics.svg" alt="Profile Metrics — isocalendar, languages, achievements" width="100%" />
+<img src="assets/metrics.svg" alt="Profile Metrics — isocalendar, languages" width="100%" />
 
 </div>
 

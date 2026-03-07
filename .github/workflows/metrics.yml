@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ── Isometric calendar + Language breakdown + Achievements ──────────────
+      # ── Isometric calendar + Language breakdown ──────────────────────────────
       - name: Full profile metrics
         uses: lowlighter/metrics@latest
         with:
@@ -34,9 +34,7 @@ jobs:
           plugin_languages_colors: github
           plugin_languages_limit: 8
 
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_achievements_threshold: C
+
 
       # ── Chess board ─────────────────────────────────────────────────────────
       # Requires:
