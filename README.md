@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=140&section=header&text=mburgc&fontSize=48&fontColor=c9d1e8&fontAlignY=65&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=82&descSize=16" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Marcelo%20Burgos&fontSize=52&fontColor=ffffff&fontAlignY=62&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=80&descSize=18&descColor=7B94D4" width="100%" />
 
 <div align="center">
 
@@ -32,11 +32,19 @@
 
 <div align="center">
 
-<a href="https://github.com/mburgc">
-  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&column=-1&margin-w=10&margin-h=10" width="100%" alt="GitHub Profile Trophies" />
-</a>
+<img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&column=7&margin-w=8&margin-h=8&rank=SSS,SS,S,AAA,AA,A,B,C,SECRET" alt="GitHub Profile Trophies" />
 
 </div>
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=slice&color=gradient&customColorList=6,11,20&height=80&section=header&reversal=true" width="100%" />
+
+<div align="center">
+<sub>Explorations in computation, physics, cognition and signal — documented <a href="https://mburgc.github.io/" target="_blank">beyond GitHub</a>.</sub>
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=slice&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%" />
 
 <br/>
 
@@ -91,6 +99,12 @@
 
 <div align="center">
 
+<img src="https://github-readme-stats.vercel.app/api?username=mburgc&show_icons=true&theme=react&bg_color=0d1117&title_color=7B94D4&icon_color=7B94D4&text_color=c9d1e8&border_color=2a3a6e&hide_border=false&rank_icon=github&show=reviews,prs_merged" alt="GitHub Stats" />
+&nbsp;
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mburgc&layout=compact&theme=react&bg_color=0d1117&title_color=7B94D4&text_color=c9d1e8&border_color=2a3a6e&langs_count=6" alt="Top Languages" />
+
+<br/><br/>
+
 <img src="https://streak-stats.demolab.com/?user=mburgc&theme=transparent&hide_border=true&background=0D1117&stroke=2a3a6e&ring=7B94D4&fire=FFA040&currStreakLabel=7B94D4&sideLabels=6a7ab4&dates=3a4a7e&sideNums=c9d1e8&currStreakNum=ffffff" alt="GitHub Streak" />
 
 <br/><br/>
@@ -107,7 +121,25 @@
 
 <br/>
 
-## 🐍 &nbsp;Contributions
+## � &nbsp;Profile Metrics
+
+<div align="center">
+
+<!-- Generated weekly by .github/workflows/metrics.yml -->
+<!-- Run the workflow manually once to generate assets/metrics.svg -->
+<img src="assets/metrics.svg" alt="Profile Metrics — isocalendar, languages, achievements" width="100%" />
+
+</div>
+
+<br/>
+
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
+
+<br/>
+
+## �🐍 &nbsp;Contributions
 
 <div align="center">
 
@@ -116,6 +148,13 @@
   <source media="(prefers-color-scheme: light)" srcset="assets/github-contribution-grid-snake.svg" />
   <img alt="Snake eating my contributions" src="assets/github-contribution-grid-snake-dark.svg" width="100%" />
 </picture>
+
+<br/>
+
+<!-- CHESS_METRICS -->
+<!-- Uncomment after workflow runs: assets/metrics-chess.svg will appear here -->
+<!-- <img src="assets/metrics-chess.svg" alt="Chess" width="100%" /> -->
+<!-- /CHESS_METRICS -->
 
 </div>
 
