@@ -1,8 +1,6 @@
 <div align="center">
 
-<video autoplay muted loop playsinline width="100%">
-  <source src="IntroBinaryGravityNeuralSTFT.mp4" type="video/mp4" />
-</video>
+<img src="assets/intro.gif" alt="Intro — Binary Gravity Neural STFT" width="100%" />
 
 </div>
 
@@ -41,7 +39,7 @@
 <div align="center">
 
 <a href="https://github.com/mburgc">
-  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10&margin-h=10&rank=SSS,SS,S,AAA,AA,A,B" width="100%" alt="GitHub Profile Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&no-frame=true&no-bg=true&column=6&margin-w=10&margin-h=10" width="100%" alt="GitHub Profile Trophies" />
 </a>
 
 </div>
@@ -196,10 +194,6 @@
 
 <a href="https://linkedin.com/in/mburgc">
   <img src="https://img.shields.io/badge/LinkedIn-mburgc-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=051829" />
-</a>
-&ensp;
-<a href="https://twitter.com/mburgc">
-  <img src="https://img.shields.io/badge/Twitter-mburgc-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&labelColor=05111a" />
 </a>
 
 </div>
