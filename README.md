@@ -1,8 +1,8 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Marcelo%20Burgos&fontSize=52&fontColor=ffffff&fontAlignY=62&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=80&descSize=18&descColor=7B94D4" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:07091a,25:0c1248,60:0f0a35,100:07091a&height=220&section=header&text=Marcelo%20Burgos&fontSize=62&fontColor=dde4ff&fontAlignY=58&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=77&descSize=21&descColor=7B94D4&stroke=3d5299&strokeWidth=2" width="100%" />
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=7B94D4&center=true&vCenter=true&multiline=false&width=700&lines=Signal+Processing+%E2%80%A2+Applied+Mathematics;Computation+%E2%80%A2+Physics+%E2%80%A2+Neural+Systems;Building+at+the+edge+of+the+known;Particles+dancing+in+the+quantum+foam" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=3000&pause=1100&color=A0B4E8&center=true&vCenter=true&random=false&width=720&height=52&lines=Signal+Processing+%E2%80%A2+Applied+Mathematics;Computation+%E2%80%A2+Physics+%E2%80%A2+Neural+Systems;Building+at+the+edge+of+the+known;Particles+dancing+in+the+quantum+foam" alt="Typing SVG" />
 
 <br/>
 
@@ -13,33 +13,27 @@
 <br/><br/>
 
 <a href="https://mburgc.github.io/" target="_blank">
-  <img src="https://img.shields.io/badge/%E2%86%92%20Explore%20the%20full%20lab-0d1117?style=for-the-badge&logo=githubpages&logoColor=7B94D4&labelColor=0d1117" />
+  <img src="https://img.shields.io/badge/%E2%86%92%20Explore%20the%20full%20lab-0a0d1f?style=for-the-badge&logo=githubpages&logoColor=7B94D4&labelColor=0a0d1f" />
 </a>
 &ensp;
-<img src="https://komarev.com/ghpvc/?username=mburgc&style=for-the-badge&color=1a2040&label=OBSERVERS&labelColor=0d1117" />
+<img src="https://komarev.com/ghpvc/?username=mburgc&style=for-the-badge&color=131852&label=OBSERVERS&labelColor=0a0d1f" />
 
 </div>
 
 <br/>
 
-<picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
-</picture>
-
-<br/>
-
-<img src="https://capsule-render.vercel.app/api?type=slice&color=gradient&customColorList=6,11,20&height=80&section=header&reversal=true" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=slice&color=0:07091a,50:0c1248,100:0f0a35&height=80&section=header&reversal=true" width="100%" />
 
 <div align="center">
 <sub>Explorations in computation, physics, cognition and signal — documented <a href="https://mburgc.github.io/" target="_blank">beyond GitHub</a>.</sub>
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=slice&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=slice&color=0:0f0a35,50:0c1248,100:07091a&height=80&section=footer" width="100%" />
 
 <br/>
 
 <picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a237e,50:3d5299,100:1a237e&height=3" width="100%" />
 </picture>
 
 <br/>
@@ -48,28 +42,28 @@
 
 <div align="center">
 
-<table border="0" cellpadding="8" cellspacing="0" width="100%">
+<table border="0" cellpadding="10" cellspacing="0" width="100%">
   <tr>
     <td align="center" width="50%">
       <a href="https://mburgc.github.io/#metrics">
-        <img src="assets/metric_stars.gif" alt="Total Stars" width="100%" />
+        <img src="assets/metric_stars.gif" alt="Total Stars" width="100%" style="border-radius:12px;" />
       </a>
     </td>
     <td align="center" width="50%">
       <a href="https://mburgc.github.io/#metrics">
-        <img src="assets/metric_forks.gif" alt="Total Forks" width="100%" />
+        <img src="assets/metric_forks.gif" alt="Total Forks" width="100%" style="border-radius:12px;" />
       </a>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
       <a href="https://mburgc.github.io/#metrics">
-        <img src="assets/metric_issues.gif" alt="Open Issues" width="100%" />
+        <img src="assets/metric_issues.gif" alt="Open Issues" width="100%" style="border-radius:12px;" />
       </a>
     </td>
     <td align="center" width="50%">
       <a href="https://mburgc.github.io/#metrics">
-        <img src="assets/metric_followers.gif" alt="Followers" width="100%" />
+        <img src="assets/metric_followers.gif" alt="Followers" width="100%" style="border-radius:12px;" />
       </a>
     </td>
   </tr>
@@ -80,7 +74,7 @@
 <br/>
 
 <picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a237e,50:3d5299,100:1a237e&height=3" width="100%" />
 </picture>
 
 <br/>
@@ -89,9 +83,18 @@
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com/?user=mburgc&theme=transparent&hide_border=true&background=0D1117&stroke=2a3a6e&ring=7B94D4&fire=FFA040&currStreakLabel=7B94D4&sideLabels=6a7ab4&dates=3a4a7e&sideNums=c9d1e8&currStreakNum=ffffff" alt="GitHub Streak" />
+<table border="0" cellpadding="8" cellspacing="0" width="100%">
+  <tr>
+    <td align="center" width="55%">
+      <img src="https://streak-stats.demolab.com/?user=mburgc&theme=transparent&hide_border=true&background=0D1117&stroke=2a3a6e&ring=7B94D4&fire=FFA040&currStreakLabel=7B94D4&sideLabels=6a7ab4&dates=3a4a7e&sideNums=c9d1e8&currStreakNum=ffffff" alt="GitHub Streak" />
+    </td>
+    <td align="center" width="45%">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mburgc&layout=compact&theme=transparent&title_color=7B94D4&text_color=c9d1e8&border_color=2a3a6e&hide_border=false&bg_color=0d1117&langs_count=6&hide=html,css" alt="Top Languages" />
+    </td>
+  </tr>
+</table>
 
-<br/><br/>
+<br/>
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=mburgc&theme=react-dark&bg_color=0d1117&color=7B94D4&line=3a4a9e&point=7B94D4&area=true&area_color=1a2550&hide_border=true&radius=8" width="100%" alt="Contribution Activity Graph" />
 
@@ -100,12 +103,12 @@
 <br/>
 
 <picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a237e,50:3d5299,100:1a237e&height=3" width="100%" />
 </picture>
 
 <br/>
 
-## � &nbsp;Profile Metrics
+## 🔭 &nbsp;Profile Metrics
 
 <div align="center">
 
@@ -118,12 +121,12 @@
 <br/>
 
 <picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a237e,50:3d5299,100:1a237e&height=3" width="100%" />
 </picture>
 
 <br/>
 
-## �🐍 &nbsp;Contributions
+## 🐍 &nbsp;Contributions
 
 <div align="center">
 
@@ -145,7 +148,7 @@
 <br/>
 
 <picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a237e,50:3d5299,100:1a237e&height=3" width="100%" />
 </picture>
 
 <br/>
@@ -154,7 +157,7 @@
 
 <div align="center">
 
-<table border="0" cellpadding="12" cellspacing="0">
+<table border="0" cellpadding="14" cellspacing="0">
   <tr>
     <td align="center">
       <sub><b>Languages</b></sub><br/><br/>
@@ -171,7 +174,7 @@
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <sub><b>Infrastructure & Tools</b></sub><br/><br/>
+      <sub><b>Infrastructure &amp; Tools</b></sub><br/><br/>
       <a href="https://skillicons.dev">
         <img src="https://skillicons.dev/icons?i=linux,docker,git,github,vscode,jupyter,bash,latex&theme=dark" />
       </a>
@@ -184,7 +187,7 @@
 <br/>
 
 <picture>
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a237e,50:3d5299,100:1a237e&height=3" width="100%" />
 </picture>
 
 <br/>
@@ -194,7 +197,7 @@
 <div align="center">
 
 <a href="https://mburgc.github.io/" target="_blank">
-  <img src="https://img.shields.io/badge/Lab%20Notebook-mburgc.github.io-0d1117?style=for-the-badge&logo=githubpages&logoColor=7B94D4&labelColor=0d1117" />
+  <img src="https://img.shields.io/badge/Lab%20Notebook-mburgc.github.io-0a0d1f?style=for-the-badge&logo=githubpages&logoColor=7B94D4&labelColor=0a0d1f" />
 </a>
 
 <br/><br/>
@@ -217,4 +220,4 @@
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=shark&color=0:07091a,30:0c1248,65:0f0a35,100:07091a&height=140&section=footer" width="100%" />

@@ -342,67 +342,137 @@ if __name__ == "__main__":
             self.palette = palette
             self.label = label
             self.system = ParticleSystem(w, h)
-            # Use larger font size for high resolution
-            self.font_size = max(24, int(h * 0.12))
+            # Hero number dominates the canvas
+            self.value_font_size = max(72, int(h * 0.30))
+            self.label_font_size = max(18, int(h * 0.075))
 
-        def make_frame(self, metric_value, frame_idx, total_frames):
+        def _load_font(self, size):
+            """Load a font with graceful fallback across platforms."""
+            from PIL import ImageFont
+
+            for path in [
+                "C:/Windows/Fonts/arialbd.ttf",
+                "C:/Windows/Fonts/arial.ttf",
+                "arial.ttf",
+                "/System/Library/Fonts/Helvetica.ttc",
+                "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+                "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            ]:
+                try:
+                    return ImageFont.truetype(path, size)
+                except Exception:
+                    pass
+            return ImageFont.load_default()
+
+        def _draw_glow_text(self, img_rgb, text, pos, font, color, glow_color=None):
+            """Draw text with a multi-layer neon glow halo via RGBA compositing."""
+            if glow_color is None:
+                glow_color = color
+            overlay = Image.new("RGBA", img_rgb.size, (0, 0, 0, 0))
+            d = ImageDraw.Draw(overlay)
+            x, y = pos
+            # Concentric halo layers: large radius = very transparent
+            for r, alpha in [(12, 18), (8, 35), (5, 65), (3, 105), (1, 160)]:
+                gc = glow_color[:3] + (alpha,)
+                step = max(1, r // 2)
+                for dx in range(-r, r + 1, step):
+                    for dy in range(-r, r + 1, step):
+                        d.text((x + dx, y + dy), text, fill=gc, font=font)
+            # Crisp main text on top
+            d.text(pos, text, fill=color[:3] + (255,), font=font)
+            return Image.alpha_composite(img_rgb.convert("RGBA"), overlay).convert("RGB")
+
+        def _make_background(self, metric_value, frame_idx, total_frames):
+            """Draw background radial glow + logarithmic progress arc. No text."""
             img = Image.new("RGB", (self.w, self.h), self.palette["bg"])
             draw = ImageDraw.Draw(img)
+            t = (frame_idx / max(1, total_frames)) * 2 * math.pi
+            cx, cy = self.w / 2, self.h / 2
 
-            # Label at top with larger font
-            try:
-                from PIL import ImageFont
+            # Radial bg glow: paint concentric circles outside→inside so inner = brightest
+            glow_r = int(min(self.w, self.h) * 0.44)
+            for radius in range(glow_r, 0, -6):
+                factor = (1.0 - radius / glow_r) * 0.40
+                gc = tuple(
+                    min(255, int(self.palette["bg"][i] + self.palette["glow"][i] * factor))
+                    for i in range(3)
+                )
+                draw.ellipse([cx - radius, cy - radius, cx + radius, cy + radius], fill=gc)
 
-                font = ImageFont.truetype("arial.ttf", self.font_size)
-                title_font = ImageFont.truetype("arial.ttf", int(self.font_size * 0.6))
-            except Exception:
-                try:
-                    from PIL import ImageFont
+            # Logarithmic progress arc (full at ~30 000 units)
+            log_val = math.log10(max(1, metric_value) + 1)
+            level = min(1.0, log_val / 4.5)
+            arc_sweep = int(level * 250)
+            arc_pad = 16
 
-                    font = ImageFont.load_default()
-                    title_font = ImageFont.load_default()
-                except Exception:
-                    font = None
-                    title_font = None
+            arc_box = [arc_pad, arc_pad, self.w - arc_pad, self.h - arc_pad]
+            # Dim track ring
+            track_col = tuple(min(255, int(c * 0.22)) for c in self.palette["secondary"])
+            draw.arc(arc_box, start=145, end=395, fill=track_col, width=3)
+            # Bright progress fill
+            if arc_sweep > 1:
+                draw.arc(arc_box, start=145, end=145 + arc_sweep, fill=self.palette["primary"], width=5)
+                # Pulsing glowing dot at arc tip
+                tip_rad = math.radians(145 + arc_sweep)
+                tip_rx = (self.w - 2 * arc_pad) / 2 - 2
+                tip_ry = (self.h - 2 * arc_pad) / 2 - 2
+                tip_x = cx + math.cos(tip_rad) * tip_rx
+                tip_y = cy + math.sin(tip_rad) * tip_ry
+                pulse = 4 + 2 * math.sin(t * 3)
+                draw.ellipse(
+                    [tip_x - pulse, tip_y - pulse, tip_x + pulse, tip_y + pulse],
+                    fill=self.palette["glow"],
+                )
+            return img
 
-            bbox = draw.textbbox((0, 0), self.label, font=title_font)
-            text_w = bbox[2] - bbox[0]
+        def _overlay_text(self, img, metric_value, frame_idx, total_frames):
+            """Stamp label + big glowing number on top of whatever is already in img."""
+            value_font = self._load_font(self.value_font_size)
+            label_font = self._load_font(self.label_font_size)
+            draw = ImageDraw.Draw(img)
+
+            # Label (metric name) — centred near top
+            bbox = draw.textbbox((0, 0), self.label, font=label_font)
+            lw = bbox[2] - bbox[0]
             draw.text(
-                ((self.w - text_w) / 2, 20),
+                (int((self.w - lw) / 2), 22),
                 self.label,
                 fill=self.palette["secondary"],
-                font=title_font,
+                font=label_font,
             )
 
-            # Value at bottom with larger font
+            # Big glowing number centred vertically
             value_str = f"{metric_value:,}"
-            bbox = draw.textbbox((0, 0), value_str, font=font)
-            text_w = bbox[2] - bbox[0]
-            text_h = bbox[3] - bbox[1]
-            draw.text(
-                ((self.w - text_w) / 2, self.h - text_h - 30),
-                value_str,
-                fill=self.palette["primary"],
-                font=font,
+            bbox = draw.textbbox((0, 0), value_str, font=value_font)
+            vw, vh = bbox[2] - bbox[0], bbox[3] - bbox[1]
+            vx = int((self.w - vw) / 2)
+            vy = int((self.h - vh) / 2) + 4
+            img = self._draw_glow_text(
+                img, value_str, (vx, vy), value_font,
+                self.palette["primary"], self.palette["glow"],
             )
-
             return img
+
+        def make_frame(self, metric_value, frame_idx, total_frames):
+            """Combined background + text (legacy / fallback path)."""
+            img = self._make_background(metric_value, frame_idx, total_frames)
+            return self._overlay_text(img, metric_value, frame_idx, total_frames)
 
         def animate_frame(self, img, metric_value, frame_idx, total_frames):
             pass
 
         def animate(self, metric_value, path, frames=40, fps=15):
-            """Generate animated GIF with high quality settings - seamless looping with crossfade."""
+            """Generate animated GIF — text is always drawn last (on top of particles)."""
             print(f"  {self.label}: {metric_value:,} ({frames} frames)...")
             result_frames = []
 
-            # Use seeded random for deterministic animation
             import random
-
             random.seed(42)
 
-            # Pre-seed particles for rich animation
-            for _ in range(40):
+            # Pre-seed background particles
+            for _ in range(30):
                 self.system.spawn(
                     random.uniform(20, self.w - 20),
                     random.uniform(50, self.h - 80),
@@ -415,8 +485,12 @@ if __name__ == "__main__":
                 )
 
             for i in range(frames):
-                frame = self.make_frame(metric_value, i, frames)
+                # 1. Background + arc
+                frame = self._make_background(metric_value, i, frames)
+                # 2. Geometry + particles (drawn by each subclass)
                 self.animate_frame(frame, metric_value, i, frames)
+                # 3. Text always on top of particles
+                frame = self._overlay_text(frame, metric_value, i, frames)
                 if frame.mode != "RGB":
                     frame = frame.convert("RGB")
                 result_frames.append(frame)
@@ -461,219 +535,217 @@ if __name__ == "__main__":
             print(f"    Saved: {path}")
 
     class StarVisualizer(MetricVisualizer):
-        """Animated star visualization with orbital particles - TRULY PERIODIC for smooth looping."""
+        """Animated star visualization — orbit radius and particle density scale with star count."""
 
         def animate_frame(self, img, metric_value, frame_idx, total_frames):
-            # Use periodic time (0 to 2π) - completes EXACTLY one full cycle
             t = (frame_idx / total_frames) * 2 * math.pi
-            cx, cy = self.w / 2, self.h / 2 + 10
+            cx, cy = self.w / 2, self.h / 2
 
-            # Orbiting stars - deterministic positions that return to start
-            count = max(15, min(45, int(math.log(max(1, metric_value + 1)) * 10)))
+            log_val = math.log10(max(1, metric_value) + 1)
+            level = min(1.0, log_val / 4.5)
+
+            # More stars → larger orbit radius and more particles
+            count = max(12, min(80, int(log_val * 22)))
+            base_orbit_r = 38 + int(level * 38)  # 38–76 px
+            p_size = 2.5 + level * 2.8            # 2.5–5.3 px
+
             for i in range(count):
-                # Each star has a unique phase offset and orbital pattern
-                # At t=0 and t=2π, star positions are IDENTICAL
                 phase_offset = (i / count) * 2 * math.pi
-                orbit_r = 50 + 18 * math.sin(phase_offset * 2 + i * 0.3)
-
+                orbit_r = base_orbit_r + 10 * math.sin(phase_offset * 2 + i * 0.3)
                 angle = phase_offset + t * 0.5
-                r = orbit_r + 8 * math.sin(t * 2 + i * 0.2)
+                r = orbit_r + 6 * math.sin(t * 2 + i * 0.2)
                 x = cx + math.cos(angle) * r
                 y = cy + math.sin(angle) * r
-                self.system.spawn(
-                    x,
-                    y,
-                    1,
-                    3.0,
-                    0.25,
-                    self.palette["primary"],
-                    0.65,
-                    0.01,
-                    angle + 1.57,
-                )
+                self.system.spawn(x, y, 1, p_size, 0.25, self.palette["primary"], 0.65, 0.01, angle + 1.57)
 
-            # Background sparkles - periodic pulsing that returns to start
-            for j in range(8):
-                # Fixed positions that pulse in brightness periodically
-                x = 40 + (self.w - 80) * (j / 7)
-                y = 70 + (self.h - 150) * ((j * 0.7) % 1)
-                # Brightness varies sinusoidally, returns to same at t=0 and t=2π
+            # Background sparkles — density scales with metric
+            sparkle_count = max(5, int(level * 18))
+            for j in range(sparkle_count):
+                x = 40 + (self.w - 80) * (j / max(1, sparkle_count - 1))
+                y = 60 + (self.h - 120) * ((j * 0.7) % 1.0)
                 b = 0.5 + 0.4 * math.sin(t * 2 + j * 0.8)
                 c = tuple(int(v * b) for v in self.palette["glow"])
-                self.system.spawn(x, y, 1, 1.2, 0, c, 0.5, 0.015)
+                self.system.spawn(x, y, 1, 1.2 + level, 0, c, 0.5, 0.015)
 
             self.system.update()
             new_img = self.system.render(img)
             img.paste(new_img, (0, 0))
 
     class ForkVisualizer(MetricVisualizer):
-        """Animated fork visualization with branching patterns - TRULY PERIODIC."""
+        """Animated fork visualization — branch count and particle size scale with forks."""
 
         def animate_frame(self, img, metric_value, frame_idx, total_frames):
-            # Use periodic time (0 to 2π) - one complete cycle
             t = (frame_idx / total_frames) * 2 * math.pi
-            cx, cy = self.w / 2, self.h / 2 + 10
+            cx, cy = self.w / 2, self.h / 2
 
-            # Branching lines that pulse and rotate periodically
-            branches = max(6, min(15, int(math.sqrt(max(1, metric_value + 1))) + 3))
+            log_val = math.log10(max(1, metric_value) + 1)
+            level = min(1.0, log_val / 4.5)
+
+            # Branch count and thickness scale with fork count
+            branches = max(4, min(20, 4 + int(log_val * 6)))
+            line_w = max(2, int(2 + level * 2))
+            branch_len = 42 + int(level * 28)
             for i in range(branches):
                 phase_offset = (i / branches) * 2 * math.pi
                 angle = phase_offset - 1.57 + t * 0.15
-                length = 55 + 10 * math.sin(phase_offset + t + i * 0.4)
+                length = branch_len + 8 * math.sin(phase_offset + t + i * 0.4)
                 ex = cx + math.cos(angle) * length
                 ey = cy + math.sin(angle) * length
                 draw = ImageDraw.Draw(img)
-                draw.line([cx, cy, ex, ey], fill=self.palette["primary"], width=3)
+                draw.line([cx, cy, ex, ey], fill=self.palette["primary"], width=line_w)
 
-            # Orbiting particles - positions return to start
-            count = max(12, min(40, int(math.log(max(1, metric_value + 1)) * 6)))
+            # Orbiting particles — count and size scale with metric
+            count = max(10, min(45, 10 + int(log_val * 9)))
+            p_size = 2.0 + level * 2.5
             for i in range(count):
                 phase_offset = (i / count) * 2 * math.pi
                 angle = phase_offset + t * 0.4
-                r = 30 + 22 * abs(math.sin(phase_offset + t * 0.8 + i * 0.2))
+                r = 28 + int(level * 22) + 18 * abs(math.sin(phase_offset + t * 0.8 + i * 0.2))
                 x = cx + math.cos(angle) * r
                 y = cy + math.sin(angle) * r
-                self.system.spawn(x, y, 1, 2.4, 0.3, self.palette["glow"], 0.55, 0.01)
+                self.system.spawn(x, y, 1, p_size, 0.3, self.palette["glow"], 0.55, 0.01)
 
             self.system.update()
             new_img = self.system.render(img)
             img.paste(new_img, (0, 0))
 
     class IssueVisualizer(MetricVisualizer):
-        """Animated issue visualization with pulsing and floating indicators - TRULY PERIODIC."""
+        """Animated issue visualization — pulse ring size and particle count scale with issues."""
 
         def animate_frame(self, img, metric_value, frame_idx, total_frames):
-            # Use periodic time (0 to 2π) - one complete cycle
             t = (frame_idx / total_frames) * 2 * math.pi
-            cx, cy = self.w / 2, self.h / 2 + 10
+            cx, cy = self.w / 2, self.h / 2
 
-            # Pulsing circles - radius returns to start
-            pulse = 35 + 12 * math.sin(t * 2.2)
+            log_val = math.log10(max(1, metric_value) + 1)
+            level = min(1.0, log_val / 4.5)
+
+            # Pulsing rings — base radius grows with issue count
+            pulse_base = 28 + int(level * 22)
+            pulse = pulse_base + 10 * math.sin(t * 2.2)
             for i in range(3):
-                rs = pulse + i * 15
+                rs = pulse + i * (10 + int(level * 6))
                 draw = ImageDraw.Draw(img)
-                draw.ellipse(
-                    [cx - rs, cy - rs, cx + rs, cy + rs],
-                    outline=self.palette["primary"],
-                    width=3,
-                )
+                alpha_factor = 1.0 - i * 0.28
+                c = tuple(max(0, int(v * alpha_factor)) for v in self.palette["primary"])
+                draw.ellipse([cx - rs, cy - rs, cx + rs, cy + rs], outline=c, width=3)
 
-            # Floating issue indicators - deterministic periodic motion
-            count = max(10, min(35, max(1, metric_value // 2)))
+            # Floating particles — count and spread scale with metric
+            count = max(8, min(50, 8 + int(log_val * 9)))
+            p_size = 2.0 + level * 2.5
+            spread = 60 + int(level * 35)
             for i in range(count):
-                # Phase offset ensures periodic return
                 phase_offset = (i / count) * 2 * math.pi
-                # Motion is sinusoidal and periodic
-                y = self.h - 85 - 35 * (1 - math.cos(phase_offset + t * 1.5))
-                x = cx + 80 * math.sin(phase_offset + t + i * 0.35)
-                sz = max(0.6, 2.5 + math.sin(phase_offset + t * 2 + i) * 1.0)
-                self.system.spawn(
-                    x, y, 1, sz, 0.4, self.palette["primary"], 0.75, 0.012
-                )
+                y = self.h - 75 - 35 * (1 - math.cos(phase_offset + t * 1.5))
+                x = cx + spread * math.sin(phase_offset + t + i * 0.35)
+                sz = max(0.6, p_size + math.sin(phase_offset + t * 2 + i) * 1.0)
+                self.system.spawn(x, y, 1, sz, 0.4, self.palette["primary"], 0.75, 0.012)
 
             self.system.update()
             new_img = self.system.render(img)
             img.paste(new_img, (0, 0))
 
     class FollowerVisualizer(MetricVisualizer):
-        """Animated follower visualization with network nodes - TRULY PERIODIC."""
+        """Animated follower visualization — node count = follower count, orbit scales too."""
 
         def animate_frame(self, img, metric_value, frame_idx, total_frames):
-            # Use periodic time (0 to 2π) - one complete cycle
             t = (frame_idx / total_frames) * 2 * math.pi
-            cx, cy = self.w / 2, self.h / 2 + 10
+            cx, cy = self.w / 2, self.h / 2
 
-            # Network nodes - positions return to start
-            nodes = max(6, min(18, max(1, metric_value)))
+            log_val = math.log10(max(1, metric_value) + 1)
+            level = min(1.0, log_val / 4.5)
+
+            # Node count mirrors actual follower count (capped); orbit radius grows with count
+            nodes = max(4, min(20, max(1, metric_value)))
+            orbit_r_base = 28 + int(level * 30)  # 28–58 px
+            node_size = 4 + int(level * 3)        # node dot size grows too
+            conn_dist = 55 + int(level * 30)      # connection draw distance grows
+
             node_pos = []
             for i in range(nodes):
                 phase_offset = (i / nodes) * 2 * math.pi
                 angle = phase_offset + t * 0.18
-                r = 35 + 16 * math.sin(phase_offset + t + i * 0.35)
+                r = orbit_r_base + 13 * math.sin(phase_offset + t + i * 0.35)
                 x = cx + math.cos(angle) * r
                 y = cy + math.sin(angle) * r
                 node_pos.append((x, y))
                 draw = ImageDraw.Draw(img)
-                draw.ellipse([x - 5, y - 5, x + 5, y + 5], fill=self.palette["primary"])
+                draw.ellipse([x - node_size, y - node_size, x + node_size, y + node_size],
+                             fill=self.palette["primary"])
 
-            # Connection lines - alpha returns to start
             for i in range(len(node_pos)):
                 for j in range(i + 1, len(node_pos)):
                     x1, y1 = node_pos[i]
                     x2, y2 = node_pos[j]
                     d = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-                    if d < 75:
-                        alpha = int(200 * (1 - d / 75))
-                        c = tuple(
-                            int(v * alpha / 255) for v in self.palette["secondary"]
-                        )
+                    if d < conn_dist:
+                        alpha = int(200 * (1 - d / conn_dist))
+                        c = tuple(int(v * alpha / 255) for v in self.palette["secondary"])
                         draw = ImageDraw.Draw(img)
                         draw.line([x1, y1, x2, y2], fill=c, width=2)
 
-            # Orbiting particles - positions return to start
-            count = max(10, min(28, int(math.log(max(1, metric_value + 1)) * 5)))
-            for i in range(count):
-                phase_offset = (i / count) * 2 * math.pi
+            # Orbiting glow particles — count and size scale with followers
+            p_count = max(10, min(32, 10 + int(log_val * 7)))
+            p_size = 1.8 + level * 2.2
+            for i in range(p_count):
+                phase_offset = (i / p_count) * 2 * math.pi
                 angle = phase_offset + t * 0.6
-                r = 25 + 12 * math.sin(phase_offset + t + i * 0.25)
+                r = 20 + int(level * 16) + 10 * math.sin(phase_offset + t + i * 0.25)
                 x = cx + math.cos(angle) * r
                 y = cy + math.sin(angle) * r
-                self.system.spawn(x, y, 1, 1.8, 0.25, self.palette["glow"], 0.5, 0.015)
+                self.system.spawn(x, y, 1, p_size, 0.25, self.palette["glow"], 0.5, 0.015)
 
             self.system.update()
             new_img = self.system.render(img)
             img.paste(new_img, (0, 0))
 
     class PRVisualizer(MetricVisualizer):
-        """Animated PR visualization with merging patterns."""
+        """Animated PR visualization — arrow scale and particle density reflect PR count."""
 
         def animate_frame(self, img, metric_value, frame_idx, total_frames):
-            # Use periodic time (0 to 2π) for smooth looping
             t = (frame_idx / total_frames) * 2 * math.pi
-            cx, cy = self.w / 2, self.h / 2 + 10
+            cx, cy = self.w / 2, self.h / 2
 
-            # Merge arrows
+            log_val = math.log10(max(1, metric_value) + 1)
+            level = min(1.0, log_val / 4.5)
+
+            # Merge arrows — size and spacing scale with PR count
+            arrow_scale = 1.0 + level * 0.6
+            shaft_w = max(2, int(3 * arrow_scale))
             for i in range(2):
-                offset = (i - 0.5) * 40
+                offset = (i - 0.5) * (32 + int(level * 14))
                 draw = ImageDraw.Draw(img)
-                # Arrow shaft
                 draw.line(
-                    [cx - 30, cy + offset, cx + 30, cy + offset],
-                    fill=self.palette["primary"],
-                    width=3,
+                    [cx - int(28 * arrow_scale), cy + offset,
+                     cx + int(28 * arrow_scale), cy + offset],
+                    fill=self.palette["primary"], width=shaft_w,
                 )
-                # Arrow head
                 draw.polygon(
                     [
-                        (cx + 30, cy + offset),
-                        (cx + 20, cy + offset - 10),
-                        (cx + 20, cy + offset + 10),
+                        (cx + int(28 * arrow_scale), cy + offset),
+                        (cx + int(18 * arrow_scale), cy + offset - int(9 * arrow_scale)),
+                        (cx + int(18 * arrow_scale), cy + offset + int(9 * arrow_scale)),
                     ],
                     fill=self.palette["primary"],
                 )
 
-            # Floating PR indicators
-            count = max(8, min(30, max(1, metric_value // 3)))
+            # Floating PR particles — count and size scale with PRs
+            count = max(8, min(48, 8 + int(log_val * 11)))
+            p_size = 2.0 + level * 2.5
+            spread = 12 + int(level * 6)
             for i in range(count):
-                y = (
-                    self.h
-                    - 85
-                    - (frame_idx / total_frames) * 80
-                    + 18 * math.sin(t * 1.5 + i)
-                )
-                x = cx + (i - count / 2) * 18 * math.sin(t + i * 0.35)
-                sz = max(0.5, 2.2 + math.sin(t * 2 + i) * 0.9)
-                self.system.spawn(
-                    x, y, 1, sz, 0.35, self.palette["primary"], 0.7, 0.013
-                )
+                y = self.h - 80 - (frame_idx / total_frames) * 70 + 16 * math.sin(t * 1.5 + i)
+                x = cx + (i - count / 2) * spread * math.sin(t + i * 0.35)
+                sz = max(0.5, p_size + math.sin(t * 2 + i) * 0.9)
+                self.system.spawn(x, y, 1, sz, 0.35, self.palette["primary"], 0.7, 0.013)
 
-            # Orbiting particles - deterministic positions
-            for j in range(3):
-                angle = (j / 3) * 6.28 + t
-                r = 55 + 15 * math.sin(t + j)
+            # Orbiting glow particles — count scales with PRs
+            orb_count = max(3, min(10, 3 + int(log_val * 3)))
+            for j in range(orb_count):
+                angle = (j / orb_count) * 6.28 + t
+                r = 48 + int(level * 22) + 12 * math.sin(t + j)
                 x = cx + math.cos(angle) * r
                 y = cy + math.sin(angle) * r
-                self.system.spawn(x, y, 1, 2.0, 0.2, self.palette["glow"], 0.45, 0.016)
+                self.system.spawn(x, y, 1, 2.0 + level * 1.5, 0.2, self.palette["glow"], 0.45, 0.016)
 
             self.system.update()
             new_img = self.system.render(img)
