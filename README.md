@@ -1,10 +1,4 @@
-<div align="center">
-
-<img src="assets/intro.gif" alt="Intro — Binary Gravity Neural STFT" width="100%" />
-
-</div>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=header&text=mburgc&fontSize=42&fontColor=c9d1e8&fontAlignY=65&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=85&descSize=16" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=140&section=header&text=mburgc&fontSize=48&fontColor=c9d1e8&fontAlignY=65&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=82&descSize=16" width="100%" />
 
 <div align="center">
 
@@ -39,7 +33,7 @@
 <div align="center">
 
 <a href="https://github.com/mburgc">
-  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&no-frame=true&no-bg=true&column=6&margin-w=10&margin-h=10" width="100%" alt="GitHub Profile Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&column=-1&margin-w=10&margin-h=10" width="100%" alt="GitHub Profile Trophies" />
 </a>
 
 </div>
