@@ -1,43 +1,38 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0d1b3e,100:0d1117&height=140&section=header" width="100%" />
+<div align="center">
+
+<video autoplay muted loop playsinline width="100%">
+  <source src="IntroBinaryGravityNeuralSTFT.mp4" type="video/mp4" />
+</video>
+
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=header&text=mburgc&fontSize=42&fontColor=c9d1e8&fontAlignY=65&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=85&descSize=16" width="100%" />
 
 <div align="center">
 
-<a href="https://mburgc.github.io/" target="_blank">
-  <img width="3840" height="2160"
-       alt="IntroBinaryGravityNeuralSTFT"
-       src="https://github.com/user-attachments/assets/e2810ed5-a2cd-4a7b-b6e4-7811d3140d53" />
-</a>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=7B94D4&center=true&vCenter=true&multiline=false&width=700&lines=Signal+Processing+%E2%80%A2+Applied+Mathematics;Computation+%E2%80%A2+Physics+%E2%80%A2+Neural+Systems;Building+at+the+edge+of+the+known;Particles+dancing+in+the+quantum+foam" alt="Typing SVG" />
 
-<br/><br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=3000&pause=1000&color=7B94D4&center=true&vCenter=true&width=640&lines=Computation+%E2%80%A2+Physics+%E2%80%A2+Neural+Systems;Signal+Processing+%E2%80%A2+Applied+Mathematics;Building+at+the+edge+of+the+known" alt="Typing SVG" />
-
-<br/><br/>
+<br/>
 
 <a href="https://mburgc.github.io/" target="_blank" style="text-decoration:none;">
-  <strong><em>We are only particles dancing in the quantum foam of existence</em></strong>
+  <em>We are only particles dancing in the quantum foam of existence</em>
 </a>
-
-<br/><br/>
-
-<sub>
-Explorations in computation, physics, cognition and signal —<br/>
-documented beyond GitHub.
-</sub>
 
 <br/><br/>
 
 <a href="https://mburgc.github.io/" target="_blank">
-  <img src="https://img.shields.io/badge/Explore%20the%20full%20lab%20→-0d1117?style=for-the-badge&logo=githubpages&logoColor=white" />
+  <img src="https://img.shields.io/badge/%E2%86%92%20Explore%20the%20full%20lab-0d1117?style=for-the-badge&logo=githubpages&logoColor=7B94D4&labelColor=0d1117" />
 </a>
 &ensp;
-<img src="https://komarev.com/ghpvc/?username=mburgc&style=for-the-badge&color=0d1117&label=OBSERVERS" />
+<img src="https://komarev.com/ghpvc/?username=mburgc&style=for-the-badge&color=1a2040&label=OBSERVERS&labelColor=0d1117" />
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:2a3a6e,100:0d1117&height=3&section=header" width="100%" />
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
 
 <br/>
 
@@ -46,49 +41,57 @@ documented beyond GitHub.
 <div align="center">
 
 <a href="https://github.com/mburgc">
-  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=12&margin-h=12" width="100%" alt="GitHub Profile Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=mburgc&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10&margin-h=10&rank=SSS,SS,S,AAA,AA,A,B" width="100%" alt="GitHub Profile Trophies" />
 </a>
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:2a3a6e,100:0d1117&height=3&section=header" width="100%" />
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
 
 <br/>
 
-## 📊 &nbsp;GitHub Profile Metrics
+## 📊 &nbsp;Metrics
 
-<table align="center" border="0" cellpadding="0" cellspacing="0">
+<div align="center">
+
+<table border="0" cellpadding="8" cellspacing="0" width="100%">
   <tr>
     <td align="center" width="50%">
-      <a href="https://mburgc.github.io/#metrics" target="_blank">
+      <a href="https://mburgc.github.io/#metrics">
         <img src="assets/metric_stars.gif" alt="Total Stars" width="100%" />
       </a>
     </td>
     <td align="center" width="50%">
-      <a href="https://mburgc.github.io/#metrics" target="_blank">
+      <a href="https://mburgc.github.io/#metrics">
         <img src="assets/metric_forks.gif" alt="Total Forks" width="100%" />
       </a>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <a href="https://mburgc.github.io/#metrics" target="_blank">
+      <a href="https://mburgc.github.io/#metrics">
         <img src="assets/metric_issues.gif" alt="Open Issues" width="100%" />
       </a>
     </td>
     <td align="center" width="50%">
-      <a href="https://mburgc.github.io/#metrics" target="_blank">
+      <a href="https://mburgc.github.io/#metrics">
         <img src="assets/metric_followers.gif" alt="Followers" width="100%" />
       </a>
     </td>
   </tr>
 </table>
 
+</div>
+
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:2a3a6e,100:0d1117&height=3&section=header" width="100%" />
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
 
 <br/>
 
@@ -96,47 +99,39 @@ documented beyond GitHub.
 
 <div align="center">
 
-<a href="https://mburgc.github.io/#analysis" target="_blank">
-  <img src="./profile/stats.svg" alt="GitHub Statistics" height="180" />
-</a>
-&nbsp;
-<a href="https://mburgc.github.io/#stack" target="_blank">
-  <img src="./profile/top-langs.svg" alt="Top Languages" height="180" />
-</a>
+<img src="https://streak-stats.demolab.com/?user=mburgc&theme=transparent&hide_border=true&background=0D1117&stroke=2a3a6e&ring=7B94D4&fire=FFA040&currStreakLabel=7B94D4&sideLabels=6a7ab4&dates=3a4a7e&sideNums=c9d1e8&currStreakNum=ffffff" alt="GitHub Streak" />
 
 <br/><br/>
 
-<a href="https://git.io/streak-stats">
-  <img src="https://streak-stats.demolab.com/?user=mburgc&theme=dark&hide_border=true&background=0D1117&stroke=3a4a8e&ring=7B94D4&fire=FFA040&currStreakLabel=7B94D4&sideLabels=7B94D4&dates=4a5a7e&sideNums=c9d1e8&currStreakNum=c9d1e8" alt="GitHub Streak" />
-</a>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=mburgc&theme=react-dark&bg_color=0d1117&color=7B94D4&line=3a4a9e&point=7B94D4&area=true&area_color=1a2550&hide_border=true&radius=8" width="100%" alt="Contribution Activity Graph" />
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:2a3a6e,100:0d1117&height=3&section=header" width="100%" />
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
 
 <br/>
 
-## 🐍 &nbsp;Contribution Activity
+## 🐍 &nbsp;Contributions
 
 <div align="center">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="assets/github-contribution-grid-snake.svg" />
-  <img alt="GitHub contribution grid snake animation" src="assets/github-contribution-grid-snake-dark.svg" width="100%" />
+  <img alt="Snake eating my contributions" src="assets/github-contribution-grid-snake-dark.svg" width="100%" />
 </picture>
-
-<br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=mburgc&theme=react-dark&bg_color=0d1117&color=7B94D4&line=4a5aad&point=c9d1e8&area=true&area_color=1a2040&hide_border=true" width="100%" alt="Contribution Activity Graph" />
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:2a3a6e,100:0d1117&height=3&section=header" width="100%" />
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
 
 <br/>
 
@@ -144,43 +139,71 @@ documented beyond GitHub.
 
 <div align="center">
 
-**Languages & Core**
-
-[![Languages](https://skillicons.dev/icons?i=py,cpp,js,ts,r&theme=dark)](https://skillicons.dev)
-
-**ML · Signal · Computation**
-
-[![ML](https://skillicons.dev/icons?i=pytorch,tensorflow,opencv&theme=dark)](https://skillicons.dev)
-
-**Infrastructure & Tools**
-
-[![Tools](https://skillicons.dev/icons?i=linux,docker,git,vscode,jupyter&theme=dark)](https://skillicons.dev)
+<table border="0" cellpadding="12" cellspacing="0">
+  <tr>
+    <td align="center">
+      <sub><b>Languages</b></sub><br/><br/>
+      <a href="https://skillicons.dev">
+        <img src="https://skillicons.dev/icons?i=py,cpp,js,ts,r&theme=dark" />
+      </a>
+    </td>
+    <td align="center">
+      <sub><b>ML · Signal · Vision</b></sub><br/><br/>
+      <a href="https://skillicons.dev">
+        <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv&theme=dark" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <sub><b>Infrastructure & Tools</b></sub><br/><br/>
+      <a href="https://skillicons.dev">
+        <img src="https://skillicons.dev/icons?i=linux,docker,git,github,vscode,jupyter,bash,latex&theme=dark" />
+      </a>
+    </td>
+  </tr>
+</table>
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:2a3a6e,100:0d1117&height=3&section=header" width="100%" />
+<picture>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2" width="100%" />
+</picture>
 
 <br/>
 
-## 📫 &nbsp;Connect
+## 📡 &nbsp;Connect
 
 <div align="center">
 
 <a href="https://mburgc.github.io/" target="_blank">
-  <img src="https://img.shields.io/badge/Website-Lab%20Notebook-111111?style=for-the-badge&logo=githubpages&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lab%20Notebook-mburgc.github.io-0d1117?style=for-the-badge&logo=githubpages&logoColor=7B94D4&labelColor=0d1117" />
 </a>
 
 <br/><br/>
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mburgos@hackfluency.com)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mburgc)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mburgc)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/mburgc)
+<a href="mailto:mburgos@hackfluency.com">
+  <img src="https://img.shields.io/badge/Email-mburgos%40hackfluency.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1a0a08" />
+</a>
+&ensp;
+<a href="https://github.com/mburgc">
+  <img src="https://img.shields.io/badge/GitHub-mburgc-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" />
+</a>
+
+<br/><br/>
+
+<a href="https://linkedin.com/in/mburgc">
+  <img src="https://img.shields.io/badge/LinkedIn-mburgc-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=051829" />
+</a>
+&ensp;
+<a href="https://twitter.com/mburgc">
+  <img src="https://img.shields.io/badge/Twitter-mburgc-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&labelColor=05111a" />
+</a>
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0d1b3e,100:0d1117&height=100&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%" />

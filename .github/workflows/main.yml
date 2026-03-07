@@ -72,11 +72,6 @@ jobs:
           ISSUES_30D: ${{ steps.metrics.outputs.issues_30d }}
         run: python generate_metrics.py
 
-      - name: Update README
-        run: |
-          BLOCK='<p align="center"><img src="assets/metrics_dashboard.gif" alt="Repository Metrics Dashboard" width="100%"/></p>'
-          perl -i -0pe 's/<!-- METRICS_IMAGE -->.*<!-- \/METRICS_IMAGE -->/$ENV{BLOCK}/smg' README.md
-
       - name: Commit & Push
         run: |
           git config --global user.name "github-actions[bot]"
