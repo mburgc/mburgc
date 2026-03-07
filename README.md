@@ -1,5 +1,7 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Marcelo%20Burgos&fontSize=62&fontColor=ffffff&fontAlignY=58&animation=fadeIn&desc=Computation%20%E2%80%A2%20Physics%20%E2%80%A2%20Neural%20Systems&descAlignY=77&descSize=21&descColor=7B94D4" width="100%" />
 
+<img src="assets/particles.svg" width="100%" alt="" />
+
 <div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=3000&pause=1100&color=A0B4E8&center=true&vCenter=true&random=false&width=720&height=52&lines=Signal+Processing+%E2%80%A2+Applied+Mathematics;Computation+%E2%80%A2+Physics+%E2%80%A2+Neural+Systems;Building+at+the+edge+of+the+known;Particles+dancing+in+the+quantum+foam" alt="Typing SVG" />
@@ -32,28 +34,7 @@
 
 <div align="center">
 
-<table border="0" cellpadding="10" cellspacing="0" width="100%">
-  <tr>
-    <td align="center" width="50%">
-      <img src="assets/metric_stars.gif" alt="Total Stars" width="100%" />
-    </td>
-    <td align="center" width="50%">
-      <img src="assets/metric_forks.gif" alt="Total Forks" width="100%" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="assets/metric_issues.gif" alt="Open Issues" width="100%" />
-    </td>
-    <td align="center" width="50%">
-      <img src="assets/metric_followers.gif" alt="Followers" width="100%" />
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-<img src="assets/metrics_dashboard.gif" alt="Metrics Dashboard" width="100%" />
+<img src="assets/metrics_dashboard.gif" alt="Metrics Dashboard — Stars · Forks · Issues · Followers" width="100%" />
 
 </div>
 
